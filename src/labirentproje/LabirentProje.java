@@ -4,7 +4,9 @@
  */
 package labirentproje;
 
+import java.awt.Dimension;
   import java.io.IOException;
+import javax.swing.JButton;
 
 import javax.swing.JFrame;
 
@@ -13,22 +15,29 @@ import javax.swing.JFrame;
  *
  * @author aslinurtopcu
  */
-public class LabirentProje {
+ class LabirentProje {
+                
 
-	public static void main(String[] args) throws IOException {
-		
+	 static void LabirentProje () throws IOException {
+		//JFrame GirisEkran = new GirisEkran();
 		JFrame frame=new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
+		//frame.setResizable(false);
+               // frame.add(new Hucre(1,1));
+                frame.setPreferredSize(new Dimension(1000,1000));
 		frame.add(new Izgara());
-		
+                
+                
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		
-	
+                
+           
+                
 
 }
+        
+        
 
     
 }
