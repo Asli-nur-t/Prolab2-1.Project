@@ -47,7 +47,7 @@ public class KullaniciLabirenti extends JPanel implements Runnable{
             new Color(97, 138, 170),
             new Color(59, 61, 53),
             new Color(252, 133, 255),//asıl yolun rengi
-            Color.WHITE,
+            Color.red,
             new Color(140, 242, 139)
     };
     setBackground(renk[ArkaPlanKodu]);
@@ -70,6 +70,7 @@ public class KullaniciLabirenti extends JPanel implements Runnable{
     @Override
     synchronized protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        
         boyutKontrol();
         LabirentCiz(g);
     }
@@ -82,11 +83,17 @@ void LabirentCiz(Graphics g) {
         int h = toplamBoy / satir;
         for (int j = 0; j < sutun; j++)
             for (int i = 0; i < satir; i++) {
-                if (Labirent[i][j] < 0)
+                if (Labirent[i][j] < 0){
                     g.setColor(renk[BosKod]);
+                  g.drawLine(0, 0, 41, 41);
+                          
+                }
+                
                 else
                     g.setColor(renk[Labirent[i][j]]);
                 g.fillRect((j * w) + sol, (i * h) + ust, w, h);
+                //g.drawArc(i, i, 100, 100, 0, 0);
+               // g.fill3DRect(i, i, 10, 40, LabVar);
             }
     }
 }
@@ -109,6 +116,7 @@ void LabirentCiz(Graphics g) {
             }
         }
         LabVar = false;
+        
         repaint();
     }
 }
@@ -143,10 +151,11 @@ void LabirentCiz(Graphics g) {
         }
     LabVar = true;
     repaint();
+    
     int r;
     for (i = duvarSay - 1; i > 0; i--) {
         r = (int) (Math.random() * i); 
-        DuvarKir(duvarSatir[r], duvarSutun[r]);
+      //  DuvarKir(duvarSatir[r], duvarSutun[r]);
         duvarSatir[r] = duvarSatir[i];
         duvarSutun[r] = duvarSutun[i];
     }
@@ -205,6 +214,7 @@ void LabirentCiz(Graphics g) {
        
         Labirent[sat][sut] = ZiyaretKodu; 
         repaint();
+        
         synchronized (this) {
             try {
                 wait(speedSleep);

@@ -10,10 +10,16 @@ package labirentproje;
  */
 
 import java.awt.Color;
+import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Robot {
 	
@@ -29,7 +35,7 @@ public 	Timer zaman=new Timer();
 public 	Timer zaman2=new Timer();
 
 	Hucre [][]hucre;
-	int sayac=0;
+	static int sayac=0;
 	int p=0;
 	
 	
@@ -76,7 +82,7 @@ public 	Timer zaman2=new Timer();
 	   {
 		  
 		   ziyaretEdilen[i][j]=true;
-		   sayac ++;
+		   
 		   
 		   boolean flag=true;
 		   
@@ -84,14 +90,14 @@ public 	Timer zaman2=new Timer();
 		   {
 			   
 			   if(yol1BoyaSatir.get(m)== i+1 && yol1BoyaSutun.get(m)== j+1)
-			   {
+			   {        
 				   flag =false;
 				   break;
 			   }
 		   }
 		   
 		   if(flag==true)
-		   {
+		   {        sayac ++;
 			   yol1BoyaSatir.add(i+1);
 			   yol1BoyaSutun.add(j+1);
 		   }
@@ -155,7 +161,7 @@ public 	Timer zaman2=new Timer();
 	   {
 		   
 		   ziyaretEdilen[i][j]=true;
-           sayac ++;
+           
   
 		   
 		   boolean flag=true;
@@ -171,7 +177,7 @@ public 	Timer zaman2=new Timer();
 		   }
 		   
 		   if(flag==true)
-		   {
+		   {        sayac ++;
 			   yol1BoyaSatir.add(i+1);
 			   yol1BoyaSutun.add(j+1);
 		   }
@@ -235,7 +241,7 @@ public boolean Yol3(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 	   {
 		   
           ziyaretEdilen[i][j]=true;
-          sayac ++;
+          
 		   
 		   boolean flag=true;
 		   
@@ -250,7 +256,7 @@ public boolean Yol3(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 		   }
 		   
 		   if(flag==true)
-		   {
+		   {sayac ++;
 			   yol1BoyaSatir.add(i+1);
 			   yol1BoyaSutun.add(j+1);
 		   }
@@ -309,7 +315,7 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 		  
 		   
           ziyaretEdilen[i][j]=true;
-          sayac++;
+          
 		   
 		   boolean flag=true;
 		   
@@ -324,7 +330,7 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 		   }
 		   
 		   if(flag==true)
-		   {
+		   {sayac++;
 			   yol1BoyaSatir.add(i+1);
 			   yol1BoyaSutun.add(j+1);
 		   }
@@ -425,15 +431,23 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 				  System.out.println(yol1BoyaSatir.get(x) +" "+yol1BoyaSutun.get(x));
 				 // System.out.println(x);
 				  x++;
+                                  
+                                 
+                                  
 				  if(x==yol1BoyaSatir.size())
 				  {
 					  zaman.cancel();
+                                          
+
 					  for(int a=0;a<yol1BoyaSutunEnk.size();a++)
 					  {
 						  hucre[yol1BoyaSatirEnk.get(a)][yol1BoyaSutunEnk.get(a)].setBackground(Color.pink);
 						  
 					  }
 					  System.out.println(sayac);
+                                
+                                      
+                                 
 				  }
 				
 			}
@@ -448,7 +462,11 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 	   
 	   
    }
-	
+	static public int Saydir(){
+            System.out.println(sayac);
+            return sayac;
+            
+        }
 
 	
 }
