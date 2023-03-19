@@ -33,7 +33,7 @@ public class Izgara extends JPanel {
 		ArrayList<String> url1 = new ArrayList<>();
 
 		int matris1boyut = 0;
-                  if(Problem2Button.getSecim()==2){
+                  if(Problem1.getSecim()==2){
                       kontrolFrame=1;
 		URL url = new URL("http://bilgisayar.kocaeli.edu.tr/prolab2/url1.txt");
                   URLConnection httpUrlConnection = url.openConnection();
@@ -186,32 +186,65 @@ public class Izgara extends JPanel {
 		
 		//baslangic ve bitis noktalarini izgarada belirleme
 		
-		 if(baslangicNoktasiBelirle==0)
-		 {
-			 BaslangicDugum(1,1);
-			 BitisDugum(satir-2,satir-2);
-			 
-			 
-			 
-		 }
-		 else if(baslangicNoktasiBelirle==1)
-		 {
-			 BaslangicDugum(1,satir-2);
-			 BitisDugum(satir-2,1);
-		 }
-		 else if(baslangicNoktasiBelirle==2)
-		 {
-			 BaslangicDugum(satir-2,1);
-			 BitisDugum(1,satir-2);
-			 
-			 
-		 }
-		 else if(baslangicNoktasiBelirle==3)
-		 {
-			 BaslangicDugum(satir-2,satir-2);
-			 BitisDugum(1,1);
-		 }
-		 
+                
+		while(true)
+		{
+			 if(baslangicNoktasiBelirle==0)
+			 {
+				 
+				 if(prob1matris1[0][0]==0 && (prob1matris1[prob1matris1.length-1][prob1matris1.length-1])==0)
+				 {
+					 BaslangicDugum(1,1);
+					 BitisDugum(satir-2,satir-2);
+					 break;
+					
+				 }
+				
+		       baslangicNoktasiBelirle=r.nextInt(4);
+				
+			 }
+			 else if(baslangicNoktasiBelirle==1)
+			 {
+				 
+				 if(prob1matris1[0][prob1matris1.length-1]==0 && prob1matris1[prob1matris1.length-1][0]==0)
+				 {
+					 BaslangicDugum(1,satir-2);
+					 BitisDugum(satir-2,1);
+					 break;
+					
+				 }
+			
+				 baslangicNoktasiBelirle=r.nextInt(4);
+				
+			 }
+			 else if(baslangicNoktasiBelirle==2)
+			 {
+				 if(prob1matris1[0][prob1matris1.length-1]==0 && (prob1matris1[prob1matris1.length-1][0])==0)
+				 {
+					 BaslangicDugum(satir-2,1);
+					 BitisDugum(1,satir-2);
+					 break;
+				
+				 }
+				
+				 baslangicNoktasiBelirle=r.nextInt(4);
+			
+			 }
+			 else if(baslangicNoktasiBelirle==3)
+			 {
+				 if(prob1matris1[0][0]==0 && (prob1matris1[prob1matris1.length-1][prob1matris1.length-1])==0)
+				 {
+					 BaslangicDugum(satir-2,satir-2);
+					 BitisDugum(1,1);
+					 break;
+					
+				 }
+			 baslangicNoktasiBelirle=r.nextInt(4);
+				
+			
+				
+			 }
+		}
 		 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------	 
 		 //engel olusturuyoruz 

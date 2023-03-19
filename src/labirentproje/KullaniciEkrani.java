@@ -4,6 +4,7 @@
  */
 package labirentproje;
 
+import java.awt.Color;
 import javax.swing.JFrame;
 
 /**
@@ -16,8 +17,10 @@ public class KullaniciEkrani extends javax.swing.JFrame {
      * Creates new form KullaniciEkrani
      */
     public KullaniciEkrani() {
-        initComponents();
+        initComponents(); 
+       
         setVisible(true);
+       
     }
 
     /**
@@ -29,20 +32,33 @@ public class KullaniciEkrani extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         LabSize = new javax.swing.JTextField();
         ButtonOlustur = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        KareSayisi = new javax.swing.JLabel();
+        Zaman = new javax.swing.JLabel();
+        SonucB = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(51, 51, 51));
+        setForeground(new java.awt.Color(102, 0, 204));
 
-        jLabel1.setText("Labirent boyutu giriniz");
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
+        LabSize.setForeground(new java.awt.Color(0, 0, 0));
         LabSize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LabSizeActionPerformed(evt);
             }
         });
 
+        ButtonOlustur.setBackground(new java.awt.Color(102, 0, 102));
+        ButtonOlustur.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        ButtonOlustur.setForeground(new java.awt.Color(255, 255, 255));
         ButtonOlustur.setText("Olustur");
         ButtonOlustur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,32 +66,91 @@ public class KullaniciEkrani extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(ButtonOlustur))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(LabSize, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)))
-                .addGap(15, 15, 15))
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Kare sayısı:");
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Zaman:");
+
+        KareSayisi.setForeground(new java.awt.Color(255, 255, 255));
+        KareSayisi.setText("-");
+
+        Zaman.setForeground(new java.awt.Color(255, 255, 255));
+        Zaman.setText("-");
+
+        SonucB.setBackground(new java.awt.Color(0, 102, 102));
+        SonucB.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        SonucB.setForeground(new java.awt.Color(255, 255, 255));
+        SonucB.setText("Sonuçlar");
+        SonucB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SonucBActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Labirent boyutu giriniz");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ButtonOlustur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(LabSize, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Zaman, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(KareSayisi, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(SonucB)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(SonucB)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(KareSayisi))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Zaman)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabSize, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ButtonOlustur)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -84,19 +159,38 @@ private static int LabirentSize;
     private void LabSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LabSizeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LabSizeActionPerformed
-
+static int eskiyiKapat=0;
     private void ButtonOlusturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonOlusturActionPerformed
         // TODO add your handling code here:
+        eskiyiKapat++;
+       
         int LabirentSize=Integer.parseInt(LabSize.getText());
         JFrame window = new JFrame("Labirent Oluştur.");
         window.setContentPane(new KullaniciLabirenti());
         window.pack();
         window.setLocation(120, 80);
         window.setSize(LabirentSize,LabirentSize);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       // window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         window.setVisible(true);
+         if(eskiyiKapat%2==0){
+             window.setVisible(true);
+        }
+         KareSayisi.setText("-"); 
+       Zaman.setText("-");
+       
         
     }//GEN-LAST:event_ButtonOlusturActionPerformed
+public static int getEski() {
+        return eskiyiKapat;
+    }
+    private void SonucBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SonucBActionPerformed
+        // TODO add your handling code here:
+        
+       KareSayisi.setText(""+KullaniciLabirenti.Saydir2()); 
+       Zaman.setText(""+(KullaniciLabirenti.Saydir2()*0.1));
+       KullaniciLabirenti.sayac2=0;
+    }//GEN-LAST:event_SonucBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,7 +232,13 @@ private static int LabirentSize;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonOlustur;
+    private javax.swing.JLabel KareSayisi;
     private javax.swing.JTextField LabSize;
+    private javax.swing.JButton SonucB;
+    private javax.swing.JLabel Zaman;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

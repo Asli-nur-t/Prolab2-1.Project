@@ -420,7 +420,7 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 //		   }
 //	   }
 //	    
-	   
+	   if(Problem1.getHiz()==1||GirisEkran.konrolde==1){
 	   zaman.schedule(new TimerTask() {
 			
 			@Override
@@ -453,15 +453,54 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 			}
 		},1,300);
 	   
+           }else if(Problem1.getHiz()==0){
 	   
-	   
-	  
+           
+       
+          zaman.schedule(new TimerTask() {
+			
+			@Override
+			public void run() {
+				
+				
+				  hucre[yol1BoyaSatir.get(x)][yol1BoyaSutun.get(x)].setBackground(Color.cyan);
+				  System.out.println(yol1BoyaSatir.get(x) +" "+yol1BoyaSutun.get(x));
+				 // System.out.println(x);
+				  x++;
+                                  
+                                 
+                                  
+				  if(x==yol1BoyaSatir.size())
+				  {
+					  zaman.cancel();
+                                          
+
+					  for(int a=0;a<yol1BoyaSutunEnk.size();a++)
+					  {
+						  hucre[yol1BoyaSatirEnk.get(a)][yol1BoyaSutunEnk.get(a)].setBackground(Color.pink);
+						  
+					  }
+					  System.out.println(sayac);
+                                
+                                      
+                                 
+				  }
+				
+			}
+		},1,1);
+       
+           }
 	   
 	   
 	   
 	   
 	   
    }
+   
+
+       
+   
+   
 	static public int Saydir(){
             System.out.println(sayac);
             return sayac;

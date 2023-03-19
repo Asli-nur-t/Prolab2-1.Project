@@ -14,12 +14,12 @@ import static labirentproje.LabirentProje.LabirentProje;
  *
  * @author aslinurtopcu
  */
-public class Problem2Button extends javax.swing.JFrame {
+public class Problem1 extends javax.swing.JFrame {
 
     /**
      * Creates new form Problem2Button
      */
-    public Problem2Button() throws IOException {
+    public Problem1() throws IOException {
         
         initComponents();
         LabirentProje();
@@ -49,6 +49,7 @@ public class Problem2Button extends javax.swing.JFrame {
         Sonuc = new javax.swing.JButton();
         ZamanLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        hizliCoz = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +75,13 @@ public class Problem2Button extends javax.swing.JFrame {
 
         jLabel3.setText("Zaman");
 
+        hizliCoz.setText("HIZLI ÇÖZ");
+        hizliCoz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hizliCozActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -87,9 +95,10 @@ public class Problem2Button extends javax.swing.JFrame {
                                 .addComponent(Sonuc))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                                    .addComponent(hizliCoz, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 8, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -99,7 +108,7 @@ public class Problem2Button extends javax.swing.JFrame {
                             .addComponent(KareLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(ZamanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 8, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -115,8 +124,10 @@ public class Problem2Button extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ZamanLabel)
                     .addComponent(jLabel3))
-                .addGap(31, 31, 31)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(hizliCoz, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -136,12 +147,15 @@ public class Problem2Button extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+static int kontrolHiz=1;
      int counter=0;
   private static int secim=1;
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        kontrolHiz=1;
+         KareLabel.setText("-");
+        ZamanLabel.setText("-");
         counter++;
         
          if(counter%2==0){
@@ -156,7 +170,7 @@ public class Problem2Button extends javax.swing.JFrame {
         try {
             LabirentProje();
         } catch (IOException ex) {
-            Logger.getLogger(Problem2Button.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Problem1.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -171,8 +185,24 @@ public class Problem2Button extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_SonucActionPerformed
+
+    private void hizliCozActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hizliCozActionPerformed
+        // TODO add your handling code here:
+        kontrolHiz=0;
+        try {
+            LabirentProje();
+        } catch (IOException ex) {
+            Logger.getLogger(Problem1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+    }//GEN-LAST:event_hizliCozActionPerformed
 public static int getSecim() {
         return secim;
+    }
+public static int getHiz() {
+        return kontrolHiz;
     }
    
     /**
@@ -192,23 +222,24 @@ public static int getSecim() {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Problem2Button.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Problem1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Problem2Button.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Problem1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Problem2Button.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Problem1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Problem2Button.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Problem1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new Problem2Button().setVisible(true);
+                    new Problem1().setVisible(true);
                 } catch (IOException ex) {
-                    Logger.getLogger(Problem2Button.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Problem1.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -220,6 +251,7 @@ public static int getSecim() {
     private javax.swing.JLabel KareLabel;
     private javax.swing.JButton Sonuc;
     private javax.swing.JLabel ZamanLabel;
+    private javax.swing.JButton hizliCoz;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
