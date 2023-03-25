@@ -20,7 +20,7 @@ public class Hucre extends JButton  {
 	
 	int satir;
 	int sutun;
-	boolean engel;
+//	boolean engel;
 	
 	
 	
@@ -36,5 +36,5 @@ public class Hucre extends JButton  {
                 setOpaque(true);
 		//addActionListener(this);
 		
-	}}
-
+	}
+}

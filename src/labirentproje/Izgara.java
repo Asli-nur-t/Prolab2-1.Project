@@ -8,6 +8,8 @@ package labirentproje;
  *
  * @author aslinurtopcu
  */
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -24,12 +26,13 @@ import java.util.ArrayList;
 
 
 public class Izgara extends JPanel {
+    
 	static int kontrolFrame;
 	
-	
+	private static final Logger logger = Logger.getLogger(Izgara.class.getName());
 	public static int[][] urlOkuycu() throws IOException {
             
-
+                
 		ArrayList<String> url1 = new ArrayList<>();
 
 		int matris1boyut = 0;
@@ -79,7 +82,7 @@ public class Izgara extends JPanel {
 		}
 
 		int matris1[][] = new int[matris1boyut][matris1boyut];
-
+                
 		for (int i = 0; i < matris1boyut; i++) {        
 			for (int j = 0; j < matris1boyut; j++) {
 
@@ -365,6 +368,22 @@ public class Izgara extends JPanel {
 			        	
 			        }
 			
+                         
+                         
+                         
+                         
+                          for(int u=1;u<satir-1;u++)
+			 {
+				 for(int y=1;y<satir-1;y++)
+				 {
+					 hucre[u][y].setVisible(false);
+				 }
+			 }
+			    
+			 
+                         
+                         
+                         
 			  
 			  
 			  Robot robot=new Robot( hucre);

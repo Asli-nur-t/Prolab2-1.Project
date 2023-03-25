@@ -163,7 +163,6 @@ public 	Timer zaman2=new Timer();
 		   ziyaretEdilen[i][j]=true;
            
   
-		   
 		   boolean flag=true;
 		   
 		   for(int m=0;m<yol1BoyaSatir.size();m++)
@@ -407,26 +406,17 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 	   }
 	   
 	   
-//	   
-//	   for(int k=0;k<yol1BoyaSatir.size();k++)
-//	   {
-//		   for(int m=1;m<yol1BoyaSatir.size();m++)
-//		   {
-//			   if(yol1BoyaSatir.get(m)==yol1BoyaSatir.get(k) && yol1BoyaSutun.get(m)==yol1BoyaSutun.get(k))
-//			   {
-//				   yol1BoyaSatir.remove(m);
-//				   yol1BoyaSutun.remove(m);
-//			   }
-//		   }
-//	   }
-//	    
-	   if(Problem1.getHiz()==1||GirisEkran.konrolde==1){
+	   
+
+           
+           
+	 
 	   zaman.schedule(new TimerTask() {
 			
 			@Override
 			public void run() {
 				
-				
+				BulutKaldir();
 				  hucre[yol1BoyaSatir.get(x)][yol1BoyaSutun.get(x)].setBackground(Color.cyan);
 				  System.out.println(yol1BoyaSatir.get(x) +" "+yol1BoyaSutun.get(x));
 				 // System.out.println(x);
@@ -444,6 +434,15 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 						  hucre[yol1BoyaSatirEnk.get(a)][yol1BoyaSutunEnk.get(a)].setBackground(Color.pink);
 						  
 					  }
+                                          
+                                           for(int i=0;i<matris1.length+2;i++)
+						 {
+							 for(int j=0;j<matris1.length+2;j++)
+							 {
+								 hucre[i][j].setVisible(true);
+							 }
+						 }
+                                          
 					  System.out.println(sayac);
                                 
                                       
@@ -451,18 +450,21 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 				  }
 				
 			}
-		},1,300);
-	   
-           }else if(Problem1.getHiz()==0){
+		},1,500);
 	   
            
+           
+           
+          
+	   
+           if(Problem1.kontrolHiz==0){
        
           zaman.schedule(new TimerTask() {
 			
 			@Override
 			public void run() {
 				
-				
+				BulutKaldir();
 				  hucre[yol1BoyaSatir.get(x)][yol1BoyaSutun.get(x)].setBackground(Color.cyan);
 				  System.out.println(yol1BoyaSatir.get(x) +" "+yol1BoyaSutun.get(x));
 				 // System.out.println(x);
@@ -480,6 +482,19 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 						  hucre[yol1BoyaSatirEnk.get(a)][yol1BoyaSutunEnk.get(a)].setBackground(Color.pink);
 						  
 					  }
+                                          
+                                           for(int i=0;i<matris1.length+2;i++)
+						 {
+							 for(int j=0;j<matris1.length+2;j++)
+							 {
+								 hucre[i][j].setVisible(true);
+                                                                
+                                                                 LoggerLab.logFine("Doğru yol bulundu.");
+							 }
+						 }
+                                           
+                                           Problem1.kontrolHiz=1;
+                                          
 					  System.out.println(sayac);
                                 
                                       
@@ -489,17 +504,38 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 			}
 		},1,1);
        
+           
+	   
            }
-	   
-	   
-	   
+            
 	   
 	   
    }
    
-
-       
    
+    public void BulutKaldir()
+    {
+   
+    	hucre[yol1BoyaSatir.get(x)][yol1BoyaSutun.get(x)].setVisible(true);
+    	
+    	hucre[yol1BoyaSatir.get(x)-1][yol1BoyaSutun.get(x)-1].setVisible(true);
+    	hucre[yol1BoyaSatir.get(x)-1][yol1BoyaSutun.get(x)].setVisible(true);
+    	hucre[yol1BoyaSatir.get(x)-1][yol1BoyaSutun.get(x)+1].setVisible(true);
+    	
+    	
+    	hucre[yol1BoyaSatir.get(x)][yol1BoyaSutun.get(x)-1].setVisible(true);
+    	hucre[yol1BoyaSatir.get(x)][yol1BoyaSutun.get(x)+1].setVisible(true);
+    	
+    	
+    	hucre[yol1BoyaSatir.get(x)+1][yol1BoyaSutun.get(x)-1].setVisible(true);
+    	hucre[yol1BoyaSatir.get(x)+1][yol1BoyaSutun.get(x)].setVisible(true);
+    	hucre[yol1BoyaSatir.get(x)+1][yol1BoyaSutun.get(x)+1].setVisible(true);
+    	
+    	
+    	
+    }
+	   
+
    
 	static public int Saydir(){
             System.out.println(sayac);
