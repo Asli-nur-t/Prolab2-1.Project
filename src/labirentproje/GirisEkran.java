@@ -18,6 +18,7 @@ public class GirisEkran extends javax.swing.JFrame {
      * Creates new form GirisEkran
      */
     public GirisEkran() {
+          LoggerLab.logInfo("Program başlatıldı.");
         initComponents();
     }
 
@@ -127,6 +128,7 @@ static int konrolde=0;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
+        //  LoggerLab.logInfo("1.Problem seçildi");
          konrolde++;
         try {
             new Problem1().setVisible(true);
@@ -140,6 +142,7 @@ static int konrolde=0;
         
         setVisible(false);
         new KullaniciEkrani().setVisible(true);
+         LoggerLab.logInfo("2.Problem seçildi");
        
     }//GEN-LAST:event_jButton2ActionPerformed
 

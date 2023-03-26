@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class LogApplication {
-    private static final Logger LOGGER = Logger.getLogger(Izgara.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(KullaniciLabirenti.class.getName());
     
     public static void main(String[] args) {
         try {

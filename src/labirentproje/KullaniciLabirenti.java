@@ -14,8 +14,13 @@ public class KullaniciLabirenti extends JPanel implements Runnable{
     public static void main(String[] args) {
         JFrame KullaniciEkrani=new JFrame();
          KullaniciEkrani.setContentPane(new KullaniciEkrani());
-
+         LoggerLab.logInfo("2.Problem başlatıldı");
+         LoggerLab.logInfo("Program başlatıldı");
+       //  KullaniciEkrani.FrameSilme(KullaniciEkrani);
+         
 }
+    
+    
 
     int[][] Labirent; 
 
@@ -29,34 +34,27 @@ public class KullaniciLabirenti extends JPanel implements Runnable{
     int satir = 11; 
     int sutun = 11; 
     int border = 0; // Labirent ile panelin kenarı arasındaki minimum piksel sayısı
-    int sleepTime = 5000; //bir labirenti çözdükten sonra diğerini yapmadan önce bekleme süresi
+    int sleepTime = 500; //bir labirenti çözdükten sonra diğerini yapmadan önce bekleme süresi
     int speedSleep = 100; //labirent çözmedeki kısa gecikme
     int blokBoyutu = KullaniciEkrani.getLabSize()/satir; 
 
     int en = -1; // panel eni
     int boy = -1; //panel boyu sizeKontrol vercek
-    static boolean karanlik=false;
+
     int toplamEn; 
     int toplamBoy; 
     int sol; 
     int ust;
-    boolean LabVar = true; 
+    boolean LabVar = false; 
     
     public KullaniciLabirenti() {
-       
     renk = new Color[] {
-            new Color(97, 138, 170),//(arkaplan)
-         new Color(59, 61, 53),//duvar rengi
-        
-            new Color(252, 133, 255),//asıl yolun rengi(boşkod)
-             
-            Color.WHITE,//normal yol rengi
-            
-            new Color(140, 242, 139),//geri döndüğü yol yeşil
-            
-            
+            new Color(97, 138, 170),
+            new Color(59, 61, 53),
+            new Color(252, 133, 255),//asıl yolun rengi
+            Color.WHITE,
+            new Color(140, 242, 139)
     };
-  
     setBackground(renk[ArkaPlanKodu]);
     setPreferredSize(new Dimension(blokBoyutu * sutun, blokBoyutu * satir));
     new Thread(this).start();
@@ -64,6 +62,7 @@ public class KullaniciLabirenti extends JPanel implements Runnable{
 
     void boyutKontrol() {
          if (getWidth() != en || getHeight() != boy) {
+             LoggerLab.logInfo("boyut konrol edildi");
         en = getWidth();
         boy = getHeight();
         int w = (en - 2 * border) / sutun;
@@ -93,10 +92,7 @@ void LabirentCiz(Graphics g) {
         for (int j = 0; j < sutun; j++) {
             for (int i = 0; i < satir; i++) {
                 if (Labirent[i][j] < 0){
-                    
-                    g.setColor(renk[BosKod]);//3.renk
-                  
-                    
+                    g.setColor(renk[BosKod]);
                 } else {
                     g.setColor(renk[Labirent[i][j]]);
                 }
@@ -108,6 +104,7 @@ void LabirentCiz(Graphics g) {
                 g.drawLine((j * w) + sol, (i * h) + ust, (j * w) + sol, (i * h) + ust + h); // sol line
                 g.drawLine((j * w) + sol + w, (i * h) + ust, (j * w) + sol + w, (i * h) + ust + h); // sağ line
                 g.drawLine((j * w) + sol, (i * h) + ust + h, (j * w) + sol + w, (i * h) + ust + h); // aşağı line
+                 LoggerLab.logInfo("Labirent ızgarası çizildi.");
               
             }
         }
@@ -123,10 +120,6 @@ void LabirentCiz(Graphics g) {
         
         LabVar = true;
         repaint();
-        
-        if(LabirentiCoz(1, 1)==true){
-            repaint();
-        }
   
 }
 
@@ -159,6 +152,7 @@ void LabirentCiz(Graphics g) {
             }
         }
     LabVar = true;
+     LoggerLab.logInfo("Labirent oluşturuldu.");
     repaint();
     
     int r;
@@ -181,6 +175,7 @@ void LabirentCiz(Graphics g) {
         
         doldur(sat, sut - 1, Labirent[sat][sut - 1], Labirent[sat][sut + 1]);
         Labirent[sat][sut] = Labirent[sat][sut + 1];
+        LoggerLab.logInfo("Labirent oluşturuluyor.");
         repaint();
         
     } else if (sat % 2 == 0 && Labirent[sat - 1][sut] != Labirent[sat + 1][sut]) {
@@ -213,25 +208,27 @@ void LabirentCiz(Graphics g) {
         repaint();
        
         if (sat == satir - 2 && sut == sutun - 2){ 
-            
+             LoggerLab.logInfo("Hedefe ulaşıldı.");
             return true; //amaca ulaştı
-            
-            
+           
         }
         try {
+             LoggerLab.logInfo("Hedefe aranıyor.");
             sayac2++;
-            Thread.sleep(speedSleep);
+            Thread.sleep(sleepTime);
         } catch (InterruptedException e) {
         }
-        if (LabirentiCoz(sat - 1, sut) || LabirentiCoz(sat, sut - 1) ||  LabirentiCoz(sat + 1, sut) || LabirentiCoz(sat, sut + 1))
+        if (LabirentiCoz(sat - 1, sut) || LabirentiCoz(sat, sut - 1) ||  LabirentiCoz(sat + 1, sut) || LabirentiCoz(sat, sut + 1)){
+             LoggerLab.logInfo("Hedefe ulaşıldı.");
             return true;
-       
+        }
         Labirent[sat][sut] = ZiyaretKodu; 
         repaint();
       
         synchronized (this) {
             try {
-                wait(speedSleep);
+                
+                wait(50);
             } catch (InterruptedException e) {
             }
         }

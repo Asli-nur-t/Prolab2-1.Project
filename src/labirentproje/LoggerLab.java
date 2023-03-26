@@ -8,25 +8,70 @@ package labirentproje;
  *
  * @author aslinurtopcu
  */
+
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.*;
 
 public class LoggerLab {
     
     private static final Logger LOGGER = Logger.getLogger(Robot.class.getName());
     private static final ConsoleHandler HANDLER = new ConsoleHandler();
-    
+    private static final String LOG_FILE_NAME = "LoggerLabirent.txt";
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+
+    private File logFile;
+    private BufferedWriter writer;
+
+    public LoggerLab() {
+    logFile = new File(LOG_FILE_NAME);
+    try {
+        writer = new BufferedWriter(new FileWriter(logFile, true));
+    } catch (IOException e) {
+        LOGGER.log(Level.SEVERE, "Error creating FileWriter for log file: " + LOG_FILE_NAME, e);
+        // optionally, you could throw a custom exception or rethrow the original exception here
+    }
+}
+
+
+    public void log(String message) {
+        String timestamp = LocalDateTime.now().format(DATE_TIME_FORMATTER);
+        String logMessage = timestamp + " - " + message;
+        try {
+            writer.write(logMessage);
+            writer.newLine();
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void close() {
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static void setup() {
         
-        // set the log level to FINE
+        
         LOGGER.setLevel(Level.FINE);
         
-        // set the console handler to FINE
+        
         HANDLER.setLevel(Level.FINE);
         
-        // add the console handler to the logger
+        
         LOGGER.addHandler(HANDLER);
         
-        // set the formatter for the console handler
+        
         HANDLER.setFormatter(new Formatter() {
             @Override
             public String format(LogRecord record) {
@@ -54,4 +99,5 @@ public class LoggerLab {
     public static void logFinest(String message) {
         LOGGER.finest(message);
     }
+    
 }

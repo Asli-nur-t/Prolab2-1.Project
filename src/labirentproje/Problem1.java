@@ -7,6 +7,7 @@ package labirentproje;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import static labirentproje.LabirentProje.LabirentProje;
 
@@ -19,10 +20,22 @@ public class Problem1 extends javax.swing.JFrame {
     /**
      * Creates new form Problem2Button
      */
-    public Problem1() throws IOException {
+    static JFrame f;
+    
+    
+   static public void FrameSilme(JFrame frame)
+    {
+        f=frame;
         
+    }
+   
+
+    public Problem1() throws IOException {
+        // LoggerLab.logInfo("Problem 1 seçildi.");
+            
         initComponents();
         LabirentProje();
+       // LoggerLab.logInfo("Program başlatıldı.");
        // this.add(Robot.l);
         
 
@@ -159,16 +172,20 @@ static int kontrolHiz=1;
         counter++;
         
          if(counter%2==0){
-            System.out.println("1. txt dosyasından labirent oluşturuldu.");
+            
+          //  LoggerLab.logInfo("1. url dosyasından labirent oluşturuldu.");
             secim=1;
         }else{
-            System.out.println("2. txt dosyasından labirent oluşturdu.");
+          //  LoggerLab.logInfo("2. url dosyasından labirent oluşturuldu.");
             secim=2;
             
         }
+         f.setVisible(false);
         
         try {
             LabirentProje();
+            LoggerLab.logInfo("Program başlatıldı...");
+             
         } catch (IOException ex) {
             Logger.getLogger(Problem1.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -25,82 +25,78 @@ import java.util.Random;
 import java.util.ArrayList;
 
 
+import java.io.*;
+import java.net.*;
+import java.util.ArrayList;
+import java.util.logging.Logger;
+
 public class Izgara extends JPanel {
     
-	static int kontrolFrame;
-	
-	private static final Logger logger = Logger.getLogger(Izgara.class.getName());
-	public static int[][] urlOkuycu() throws IOException {
+    private static final Logger logger = Logger.getLogger(Izgara.class.getName());
+    
+    static int kontrolFrame;
+    
+    public static int[][] urlOkuycu() throws IOException {
             
+        ArrayList<String> url1 = new ArrayList<>();
+
+        int matris1boyut = 0;
+        if (Problem1.getSecim() == 2) {
+            kontrolFrame = 1;
+            URL url = new URL("http://bilgisayar.kocaeli.edu.tr/prolab2/url1.txt");
+            logger.info("Reading URL1 file...");
+            URLConnection httpUrlConnection = url.openConnection();
+            InputStream yaz = httpUrlConnection.getInputStream();
+            BufferedReader oku = new BufferedReader(new InputStreamReader(yaz));
+            String line = "";
+            while ((line = oku.readLine()) != null) {
+                matris1boyut = line.length();
+                url1.add(line);
+            }
+
+            int matris1[][] = new int[matris1boyut][matris1boyut];
+
+            for (int i = 0; i < matris1boyut; i++) {        
+                for (int j = 0; j < matris1boyut; j++) {
+                    matris1[i][j] = Integer.parseInt(String.valueOf(url1.get(i).charAt(j)));
+                }
+            }
+
+            oku.close();
+            logger.info("Successfully read URL1 file.");
+            return matris1;
+                  
+        } else {
+            kontrolFrame = 0;
+            URL url = new URL("http://bilgisayar.kocaeli.edu.tr/prolab2/url2.txt");
+            logger.info("Reading URL2 file...");
+            URLConnection httpUrlConnection = url.openConnection();
+            InputStream yaz = httpUrlConnection.getInputStream();
+            BufferedReader oku = new BufferedReader(new InputStreamReader(yaz));
+            String line = "";
+            while ((line = oku.readLine()) != null) {
+                matris1boyut = line.length();
+                url1.add(line);
+            }
+
+            int matris1[][] = new int[matris1boyut][matris1boyut];
                 
-		ArrayList<String> url1 = new ArrayList<>();
+            for (int i = 0; i < matris1boyut; i++) {        
+                for (int j = 0; j < matris1boyut; j++) {
+                    matris1[i][j] = Integer.parseInt(String.valueOf(url1.get(i).charAt(j)));
+                }
+            }
 
-		int matris1boyut = 0;
-                  if(Problem1.getSecim()==2){
-                      kontrolFrame=1;
-		URL url = new URL("http://bilgisayar.kocaeli.edu.tr/prolab2/url1.txt");
-                  URLConnection httpUrlConnection = url.openConnection();
-		InputStream yaz = httpUrlConnection.getInputStream();
-		BufferedReader oku = new BufferedReader(new InputStreamReader(yaz));
-		String line = "";
-		while ((line = oku.readLine()) != null) {
-
-			matris1boyut = line.length();
-			url1.add(line);
-
-		}
-
-		int matris1[][] = new int[matris1boyut][matris1boyut];
-
-		for (int i = 0; i < matris1boyut; i++) {        
-			for (int j = 0; j < matris1boyut; j++) {
-
-				matris1[i][j] = Integer.parseInt(String.valueOf(url1.get(i).charAt(j)));
-			}
-		}
-
-
-
-		oku.close();
-		return matris1;
-                  
-                  }
-                  else{
-                      kontrolFrame=0;
-                      URL url = new URL("http://bilgisayar.kocaeli.edu.tr/prolab2/url2.txt");
-                  
-
-		URLConnection httpUrlConnection = url.openConnection();
-		InputStream yaz = httpUrlConnection.getInputStream();
-		BufferedReader oku = new BufferedReader(new InputStreamReader(yaz));
-		String line = "";
-		while ((line = oku.readLine()) != null) {
-
-			matris1boyut = line.length();
-			url1.add(line);
-
-		}
-
-		int matris1[][] = new int[matris1boyut][matris1boyut];
-                
-		for (int i = 0; i < matris1boyut; i++) {        
-			for (int j = 0; j < matris1boyut; j++) {
-
-				matris1[i][j] = Integer.parseInt(String.valueOf(url1.get(i).charAt(j)));
-			}
-		}
-
-
-
-		oku.close();
-		return matris1;
-	}
-                  
+            oku.close();
+            logger.info("Successfully read URL2 file.");
+            return matris1;
         }
-        
-        public static int getKontrol() {
+    }
+    
+    public static int getKontrol() {
         return kontrolFrame;
     }
+
 
 //-----------------------------------------------------------------------------------------------------------------------------
 	

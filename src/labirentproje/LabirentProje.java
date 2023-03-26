@@ -21,6 +21,7 @@ import javax.swing.JFrame;
 	 static void LabirentProje () throws IOException {
 		//JFrame GirisEkran = new GirisEkran();
 		JFrame frame=new JFrame();
+                LoggerLab.logInfo("Problem 1 için frame açıldı.");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//frame.setResizable(false);
                // frame.add(new Hucre(1,1));
@@ -31,7 +32,7 @@ import javax.swing.JFrame;
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-                
+                Problem1.FrameSilme(frame);
            
                 
 

@@ -27,6 +27,8 @@ public class Robot {
 	ArrayList <Integer> yol1BoyaSutun = new ArrayList<>(); 
 	ArrayList <Integer> yol1BoyaSatirEnk = new ArrayList<>(); 
 	ArrayList <Integer> yol1BoyaSutunEnk = new ArrayList<>(); 
+        
+        LoggerLab logger = new LoggerLab();
   
 	int x=0;
 	
@@ -53,7 +55,7 @@ public 	Timer zaman2=new Timer();
 	
    public boolean gidilebilirHucre(int [][] matris1,int satir,int sutun)
    {
-	   
+	  
 	   return (satir>=0 && satir<matris1.length && sutun>=0 && sutun< matris1.length && matris1[satir][sutun]==0);
 	   
    }
@@ -130,6 +132,7 @@ public 	Timer zaman2=new Timer();
 		   }
 		   
 		   ziyaretEdilen[i][j]=true;
+                   
 		   return false;
 		   
 		   
@@ -428,11 +431,14 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 				  {
 					  zaman.cancel();
                                           
-
+                                            logger.log("Hedefe Ulaşıldı.");
+                                            LoggerLab.logFine("Hedefe Ulaşıldı.");
 					  for(int a=0;a<yol1BoyaSutunEnk.size();a++)
 					  {
+                                              
 						  hucre[yol1BoyaSatirEnk.get(a)][yol1BoyaSutunEnk.get(a)].setBackground(Color.pink);
-						  
+						 if(a==yol1BoyaSutunEnk.size()-1)
+                                                  logger.log("En kısa yol çizildi...");
 					  }
                                           
                                            for(int i=0;i<matris1.length+2;i++)
@@ -490,6 +496,7 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 								 hucre[i][j].setVisible(true);
                                                                 
                                                                  LoggerLab.logFine("Doğru yol bulundu.");
+                                                                 logger.log("Doğru yol bulundu.");
 							 }
 						 }
                                            
