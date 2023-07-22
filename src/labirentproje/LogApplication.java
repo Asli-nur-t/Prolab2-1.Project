@@ -19,7 +19,7 @@ public class LogApplication {
     
     public static void main(String[] args) {
         try {
-            // Günlük iletilerini "Labirent2Log.log" adlı bir dosyaya yazan bir FileHandler oluşturur
+            // log iletilerini "Labirent2Log.log" adlı bir dosyaya yazan bir FileHandler oluşturur
             FileHandler fileHandler = new FileHandler("Labirent2Log.log");
             
             // log iletilerini biçimlendirmek için bir SimpleFormatter kullanmak üzere fileHandler'ı yapılandırır

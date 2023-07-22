@@ -66,10 +66,18 @@ public class Problem1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 0));
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Kare Sayısı:");
 
+        KareLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        KareLabel.setForeground(new java.awt.Color(0, 0, 0));
         KareLabel.setText("-");
 
+        jButton1.setBackground(new java.awt.Color(255, 102, 0));
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("DEĞİŞTİR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +85,9 @@ public class Problem1 extends javax.swing.JFrame {
             }
         });
 
+        Sonuc.setBackground(new java.awt.Color(255, 102, 0));
+        Sonuc.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Sonuc.setForeground(new java.awt.Color(0, 0, 0));
         Sonuc.setText("Sonuçlar");
         Sonuc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,10 +95,16 @@ public class Problem1 extends javax.swing.JFrame {
             }
         });
 
+        ZamanLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        ZamanLabel.setForeground(new java.awt.Color(0, 0, 0));
         ZamanLabel.setText("-");
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Zaman");
 
+        hizliCoz.setBackground(new java.awt.Color(255, 102, 0));
+        hizliCoz.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        hizliCoz.setForeground(new java.awt.Color(0, 0, 0));
         hizliCoz.setText("HIZLI ÇÖZ");
         hizliCoz.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +213,7 @@ static int kontrolHiz=1;
     private void SonucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SonucActionPerformed
         // TODO add your handling code here:
         KareLabel.setText(""+Robot.Saydir());
-        ZamanLabel.setText(""+(Robot.Saydir()*0.3));
+        ZamanLabel.setText(""+(Robot.Saydir()*0.5));
         Robot.sayac=0;
         
         
@@ -206,6 +223,7 @@ static int kontrolHiz=1;
     private void hizliCozActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hizliCozActionPerformed
         // TODO add your handling code here:
         kontrolHiz=0;
+        Robot.sayac=0;
         try {
             LabirentProje();
         } catch (IOException ex) {

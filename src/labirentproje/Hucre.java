@@ -20,7 +20,7 @@ public class Hucre extends JButton  {
 	
 	int satir;
 	int sutun;
-//	boolean engel;
+
 	
 	
 	
@@ -30,11 +30,9 @@ public class Hucre extends JButton  {
 		this.sutun=sutun;
 		
 		setBackground(Color.white);
-               
 		setForeground(Color.black);
-                //setBorderPainted(false);
                 setOpaque(true);
-		//addActionListener(this);
+		
 		
 	}
 }

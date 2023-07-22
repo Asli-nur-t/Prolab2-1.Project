@@ -110,7 +110,7 @@ public class Izgara extends JPanel {
 	int j=0;
 	
 	Hucre [][] hucre;
-	Hucre baslangicHucresi,bitisHucresi,hareketHucresi;
+	Hucre baslangicHucresi,bitisHucresi;
 	
 	
 	Random r =new Random();
@@ -398,7 +398,7 @@ public class Izgara extends JPanel {
                   hucre[satir][sutun].setOpaque(true);
                  hucre[satir][sutun].setBorderPainted(false);
 		baslangicHucresi=hucre[satir][sutun];
-		hareketHucresi=baslangicHucresi;
+		
 		
 	}
 	
@@ -406,8 +406,6 @@ public class Izgara extends JPanel {
 	{
 		
 		hucre[satir][sutun].setBackground(Color.red);
-                  //hucre[satir][sutun].setOpaque(true);
-                 //hucre[satir][sutun].setBorderPainted(false);
 		bitisHucresi=hucre[satir][sutun];
 		
 		
@@ -417,8 +415,6 @@ public class Izgara extends JPanel {
 	{
 		
 		hucre[satir+1][sutun+1].setBackground(Color.darkGray);
-             //     hucre[satir][sutun].setOpaque(true);
-               //  hucre[satir][sutun].setBorderPainted(false);
 		
 	}
 	

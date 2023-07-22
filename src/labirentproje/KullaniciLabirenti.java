@@ -16,7 +16,7 @@ public class KullaniciLabirenti extends JPanel implements Runnable{
          KullaniciEkrani.setContentPane(new KullaniciEkrani());
          LoggerLab.logInfo("2.Problem başlatıldı");
          LoggerLab.logInfo("Program başlatıldı");
-       //  KullaniciEkrani.FrameSilme(KullaniciEkrani);
+        // KullaniciEkrani.FrameSilme(KullaniciEkrani);
          
 }
     

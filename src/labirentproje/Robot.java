@@ -117,7 +117,7 @@ public 	Timer zaman2=new Timer();
 			   
 			   yol1BoyaSatirEnk.add(i+2);
 			   yol1BoyaSutunEnk.add(j+1);
-			   //hucre[i+2][j+1].Ilerleme();
+			   
 			   return true;
 		   }
 		   
@@ -127,7 +127,7 @@ public 	Timer zaman2=new Timer();
 			   
 			   yol1BoyaSatirEnk.add(i+1);
 			   yol1BoyaSutunEnk.add(j+2);
-			  // hucre[i+1][j+2].Ilerleme();
+			  
 			   return true;
 		   }
 		   
@@ -200,7 +200,7 @@ public 	Timer zaman2=new Timer();
 			   yol1BoyaSatirEnk.add(i+1);
 			   yol1BoyaSutunEnk.add(j+1);
 			   
-			  // hucre[i+1][j+1].Ilerleme();
+			  
 			   return true;
 		   }
 		   
@@ -209,7 +209,7 @@ public 	Timer zaman2=new Timer();
 			
 			   yol1BoyaSatirEnk.add(i+1);
 			   yol1BoyaSutunEnk.add(j+1);
-			  // hucre[i+1][j+1].Ilerleme();
+			  
 			   return true;
 		   }
 		   
@@ -275,7 +275,7 @@ public boolean Yol3(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 			  
 			   yol1BoyaSatirEnk.add(i+1);
 			   yol1BoyaSutunEnk.add(j+1);
-			  // hucre[i+1][j+1].Ilerleme();
+			  
 			   return true;
 		   }
 		   
@@ -284,7 +284,7 @@ public boolean Yol3(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 			   
 			   yol1BoyaSatirEnk.add(i+1);
 			   yol1BoyaSutunEnk.add(j+1);
-			  // hucre[i+1][j+1].Ilerleme();
+			  
 			   return true;
 		   }
 		   
@@ -347,7 +347,7 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 			
 			   yol1BoyaSatirEnk.add(i+1);
 			   yol1BoyaSutunEnk.add(j+1);
-			  // hucre[i+1][j+1].Ilerleme();
+			  
 			   return true;
 		   }
 		   
@@ -356,7 +356,7 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 			   
 			   yol1BoyaSatirEnk.add(i+1);
 			   yol1BoyaSutunEnk.add(j+1);
-			  // hucre[i+1][j+1].Ilerleme();
+			  
 			   return true;
 		   }
 		   
@@ -470,7 +470,7 @@ public boolean Yol4(int[][] matris1,boolean [][]ziyaretEdilen, int i,int j,int x
 			@Override
 			public void run() {
 				
-				BulutKaldir();
+				  BulutKaldir();
 				  hucre[yol1BoyaSatir.get(x)][yol1BoyaSutun.get(x)].setBackground(Color.cyan);
 				  System.out.println(yol1BoyaSatir.get(x) +" "+yol1BoyaSutun.get(x));
 				 // System.out.println(x);
